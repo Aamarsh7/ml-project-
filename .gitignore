@@ -4,10 +4,6 @@ __pycache__/
 *.py[cod]
 .matplotlib/
 
-# Downloaded medical-image data and generated results
-data/
-outputs/
-
 # Operating-system and editor files
 .DS_Store
 .vscode/

@@ -71,6 +71,10 @@ The left panel is the original CT input. The right panel is the CT with the
 segmentation output in colour. At this stage it is the dataset's known label;
 after `predict`, use the saved model mask with this same command.
 
+### Example output
+
+![AMOS22 CT input on the left and segmentation output on the right](assets/amos_0001_input_vs_output.png)
+
 ## Make a model prediction
 
 First fine-tune Swin-UMamba† on a proper training set. Then put the
