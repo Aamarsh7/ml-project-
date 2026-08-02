@@ -4,6 +4,10 @@ __pycache__/
 *.py[cod]
 .matplotlib/
 
+# Downloaded dataset files and generated images
+data/
+outputs/
+
 # Operating-system and editor files
 .DS_Store
 .vscode/

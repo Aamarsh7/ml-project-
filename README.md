@@ -60,7 +60,31 @@ This creates `data/raw/` and
 `data/nnUNet_raw/Dataset901_AMOS22_Small/`. The files are `amos_0001`,
 `amos_0004`, and `amos_0005`, plus their matching labels.
 
+## Run the full demo
+
+After the files are downloaded, run:
+
+```bash
+python amos_demo.py
+```
+
+By default, this converts every CT file in `data/raw/train/imagesTr/` into a
+normal PNG and also creates side-by-side images using the matching masks in
+`data/raw/train/labelsTr/`.
+
+The PNG inputs are saved in `outputs/converted_png/`.
+The side-by-side outputs are saved in `outputs/side_by_side/`.
+
 ## Create a side-by-side visual sample
+
+To first convert the raw CT scan into a normal image file that you can open:
+
+```bash
+python amos_demo.py export-image --input data/raw/train/imagesTr/amos_0001.nii.gz \
+  --output outputs/amos_0001_input.png
+```
+
+That creates a regular PNG image from the middle CT slice.
 
 ```bash
 python amos_demo.py preview --input data/raw/train/imagesTr/amos_0001.nii.gz \
@@ -70,6 +94,13 @@ python amos_demo.py preview --input data/raw/train/imagesTr/amos_0001.nii.gz \
 The left panel is the original CT input. The right panel is the CT with the
 segmentation output in colour. At this stage it is the dataset's known label;
 after `predict`, use the saved model mask with this same command.
+
+You can also make the side-by-side preview from the exported PNG:
+
+```bash
+python amos_demo.py preview --input outputs/amos_0001_input.png \
+  --mask data/raw/train/labelsTr/amos_0001.nii.gz --output outputs/ground_truth_from_png.png
+```
 
 ### Example output
 
